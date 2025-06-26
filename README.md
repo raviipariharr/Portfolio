@@ -1,1 +1,1 @@
-https://github.com/raviipariharr/Portfolio.git
+https://raviipariharr.github.io/Portfolio/
