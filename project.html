@@ -1,240 +1,405 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- 
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ravi Portfolio</title>
+    <title>Ravi Portfolio - Projects</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300&display=swap" rel="stylesheet">
-     <style>
-        {
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-body{
-    background-color: rgb(0, 0, 0);
-    color:white;
-    font-family: 'Oswald', sans-serif;
 
-}
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Oswald', sans-serif;
+        }
 
-nav{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 90p;
-    background-color: rgb(14, 14, 14);
-}
-nav ul{
-    display: flex;
-    justify-content: center;
-}
-nav ul li{
-    list-style: none;
-    margin: 0 24px;
-}
-nav ul li a{
-    text-decoration: none;
-    color: white;
-    position: relative;
-}
-nav ul li a:hover{
-    color: rgb(160, 159, 159);
-    
-    font-size: 1.03rem;
-}
-nav ul li a::after {
-    content: '';
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    bottom: -2px;
-    left: 50%;
-    background-color: rgb(160, 159, 159);
-    transition: width 0.3s ease;
-}
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 90px;
+            background-color: rgb(14, 14, 14);
+        }
 
-nav ul li a:hover::after {
-    width: 100%;
-    left: 0;
-    transition: width 0.3s ease;
-}
-.left{
-    font-size: 1.6rem;s
-}
-.firstSection{
-    display: flex;
-    justify-content: space-around;
-    margin: 30px 0;
-}
-.firstSection > div{
-    width: 30%;
-}
-.leftSection{
-    
-    font-size: 2.5rem;
-    margin:
-}
-.leftSection .btn {
-padding: 12px;
-    background:rgb(88, 86, 90);
-    color:white;
-    border:2px solid white;
-    border: radius 7px;
-    font-size: 20px;
-    cursor:pointer;
-    text-decoration: none;
-}
-.rightSection img{
-    width: 80%;
-    margin: 60px 0;
-}
-.purple{
-    color:rgb(137, 135, 139);
-}
-#element{
-    color:rgb(137, 135, 139);
-}
-.secondsection{
-    max-width: 78vw;
-    margin:auto;
-}
-   
-    </style> 
+        nav ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 24px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: rgb(160, 159, 159);
+            font-size: 1.03rem;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            bottom: -2px;
+            left: 50%;
+            background-color: rgb(160, 159, 159);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .left {
+            font-size: 1.6rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: rgb(137, 135, 139);
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 60px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .project-card {
+            background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(137, 135, 139, 0.2);
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(137, 135, 139, 0.3);
+            border-color: rgb(137, 135, 139);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.1);
+        }
+
+        .image-container {
+            overflow: hidden;
+            height: 250px;
+            background: #0a0a0a;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: rgb(137, 135, 139);
+        }
+
+        .project-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            min-height: 80px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: rgba(137, 135, 139, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: rgb(137, 135, 139);
+            border: 1px solid rgba(137, 135, 139, 0.3);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-btn {
+            flex: 1;
+            padding: 12px 20px;
+            text-align: center;
+            background: rgb(88, 86, 90);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .project-btn:hover {
+            background: rgb(137, 135, 139);
+            border-color: white;
+            transform: scale(1.05);
+        }
+
+        .project-btn.secondary {
+            background: transparent;
+            border: 2px solid rgb(88, 86, 90);
+        }
+
+        .project-btn.secondary:hover {
+            background: rgb(88, 86, 90);
+            border-color: white;
+        }
+
+        .upcoming-section {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+            border-radius: 15px;
+            border: 1px solid rgba(137, 135, 139, 0.2);
+        }
+
+        .upcoming-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: rgb(137, 135, 139);
+        }
+
+        .upcoming-section p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+            border-top: 1px solid rgba(137, 135, 139, 0.2);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .project-card h2 {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+            }
+
+            nav ul li {
+                margin: 10px 12px;
+            }
+        }
+    </style>
 </head>
-
 <body>
     <header>
         <nav>
             <div class="left">Ravi's Portfolio</div>
-
-            <div class"right">
+            <div class="right">
                 <ul>
-                     <li><a href="index.html">Home</a></li>
-                     <li><a href="about.html">About</a></li>
-                     <li><a href="cont.html">Contact</a></li>
-                     <li><a href="project.html">Project</a></li>
-
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="cont.html">Contact</a></li>
+                    <li><a href="project.html">Project</a></li>
                 </ul>
             </div>
-
-        
         </nav>
     </header>
-  <meta charset="UTF-8">
-  <title>Project Showcase</title>
-  <style>
-    body {
-      background-color: black;
-      color: white;
-      font-family: Arial, sans-serif;
-    }
-    .container {
-      width: 80%;
-      margin: 0 auto;
-      padding: 50px 0;
-    }
-    h1 {
-      text-align: center;
-    }
-    .project {
-      margin-bottom: 30px;
-      padding: 20px;
-      border: 1px solid white;
-      position: relative;
-      overflow: hidden;
-    }
-    .project h2 {
-      margin-top: 0;
-    }
-    .project p {
-      margin-bottom: 10px;
-    }
-    .project img {
-      max-width: 100%;
-      height: 200px;
-      display: block;
-      margin-bottom: 15px;
-      transition: transform 0.3s ease-in-out;
-    }
-    .project video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out;
-      z-index: -1; /* Ensure the video stays below other elements */
-    }
-    .project .content {
-      position: relative;
-      z-index: 1; /* Ensure the content stays above the video */
-    }
-    .project:hover img {
-      transform: scale(1.1);
-    }
-    .project:hover video {
-      opacity: 1;
-    }
-    .upcoming-project {
-      text-align: center;
-      margin-top: 50px;
-    }
-    .upcoming-project h2 {
-      margin-top: 0;
-    }
-    .upcoming-project p {
-      margin-bottom: 20px;
-    }
-    .link-btn {
-      display: block;
-      width: 200px;
-      margin: 0 auto;
-      padding: 10px 20px;
-      text-align: center;
-      background-color: rgb(137, 135, 139);
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-  </style>
-</head>
-<body>
 
-<div class="container">
-  <h1>Project Showcase</h1>
-  
-  <!-- First Project -->
-  <div class="project">
-    <h2>Snake Game</h2>
-    <img src="images/snack.jpg" alt="Project 1 Image">
-    <video src="snake.webm" loop muted></video>
-    <div class="content">
-      <p>the Snake game is a classic arcade game where the player controls a snake that grows in length as it consumes food items</p>
-      <a href="snakegame.html" class="link-btn" target="_blank">View Project 1</a>
-    </div>
-  </div>
-  
-  <!-- Second Project -->
-  <div class="project">
-    <h2>Tic-tac-toe</h2>
-    <img src="images/tick.png" alt="Project 2 Image">
-    <video src="tic.webm" loop muted></video>
-    <div class="content">
-      <p>Tic-tac-toe, also known as noughts and crosses or Xs and Os, is a popular paper-and-pencil game played on a grid typically consisting of a 3x3 square. </p>
-      <a href="tic.html" class="link-btn" target="_blank">View Project 2</a>
-    </div>
-  </div>
-  
-  <!-- Upcoming Project -->
-  <div class="upcoming-project">
-    <h2>Upcoming Project</h2>
-    <p>Stay tuned for our upcoming project!</p>
-  </div>
-</div>
+    <div class="container">
+        <h1>Project Showcase</h1>
+        <p class="subtitle">Explore my latest work and creations</p>
 
+        <div class="projects-grid">
+            <!-- BaatCheet Chat App -->
+            <div class="project-card">
+                <div class="image-container">
+                    <img src="images/chat-app.jpg" alt="BaatCheet Chat App" class="project-image">
+                </div>
+                <div class="project-content">
+                    <h2>BaatCheet</h2>
+                    <p class="project-description">A real-time chat application enabling seamless communication with instant messaging, user authentication, and modern UI. Built with WebSocket technology for live updates.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">WebSocket</span>
+                        <span class="tech-tag">MongoDB</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Ravipariharr/BaatCheet" class="project-btn" target="_blank">View Project</a>
+                        <a href="#" class="project-btn secondary">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PyLiteCompiler -->
+            <div class="project-card">
+                <div class="image-container">
+                    <img src="images/compiler.jpg" alt="PyLiteCompiler" class="project-image">
+                </div>
+                <div class="project-content">
+                    <h2>PyLiteCompiler</h2>
+                    <p class="project-description">A lightweight Python compiler implementation featuring lexical analysis, parsing, and code generation. Demonstrates understanding of compiler design principles.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Compiler Design</span>
+                        <span class="tech-tag">Parsing</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Ravipariharr/PyLiteCompiler" class="project-btn" target="_blank">View Project</a>
+                        <a href="#" class="project-btn secondary">Documentation</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NotGPT -->
+            <div class="project-card">
+                <div class="image-container">
+                    <img src="images/ai-chat.jpg" alt="NotGPT" class="project-image">
+                </div>
+                <div class="project-content">
+                    <h2>NotGPT</h2>
+                    <p class="project-description">An AI-powered conversational assistant with natural language processing capabilities. Features context-aware responses and an intuitive chat interface.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">AI/ML</span>
+                        <span class="tech-tag">NLP</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">API</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Ravipariharr/NotGPT" class="project-btn" target="_blank">View Project</a>
+                        <a href="#" class="project-btn secondary">Try It Out</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Collaborative Real-Time Development Environment -->
+            <div class="project-card">
+                <div class="image-container">
+                    <img src="images/collab-ide.jpg" alt="Collaborative IDE" class="project-image">
+                </div>
+                <div class="project-content">
+                    <h2>Collaborative Dev Environment</h2>
+                    <p class="project-description">A real-time collaborative code editor enabling multiple developers to work simultaneously. Features syntax highlighting, live cursor tracking, and instant sync.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">WebRTC</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Socket.io</span>
+                        <span class="tech-tag">CodeMirror</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Ravipariharr/Collaborative-Real-Time-Development-Environment" class="project-btn" target="_blank">View Project</a>
+                        <a href="#" class="project-btn secondary">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Snake Game -->
+            <div class="project-card">
+                <div class="image-container">
+                    <img src="images/snack.jpg" alt="Snake Game" class="project-image">
+                </div>
+                <div class="project-content">
+                    <h2>Snake Game</h2>
+                    <p class="project-description">Classic arcade game with modern twist featuring two difficulty modes, responsive controls, and dynamic gameplay. Test your reflexes and strategy!</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Canvas API</span>
+                        <span class="tech-tag">HTML5</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="snakegame.html" class="project-btn" target="_blank">Play Now</a>
+                        <a href="https://github.com/Ravipariharr/snake-game" class="project-btn secondary" target="_blank">Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tic-Tac-Toe -->
+            <div class="project-card">
+                <div class="image-container">
+                    <img src="images/tick.png" alt="Tic-Tac-Toe" class="project-image">
+                </div>
+                <div class="project-content">
+                    <h2>Tic-Tac-Toe</h2>
+                    <p class="project-description">Interactive two-player game with clean design and smooth gameplay. Challenge your friends and see who dominates the grid!</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="tic.html" class="project-btn" target="_blank">Play Now</a>
+                        <a href="https://github.com/Ravipariharr/tic-tac-toe" class="project-btn secondary" target="_blank">Source Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="upcoming-section">
+            <h2>More Projects Coming Soon</h2>
+            <p>Stay tuned for exciting new developments and innovations!</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Ravi Parihar. All rights reserved.</p>
+    </footer>
 </body>
 </html>
